@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test
  * 参   考: @link
  * 描   述:
  */
+
+fun String.lastChar(): Char = get(length - 1)
+
 class HelloWorld {
 
     val num1 = 16
@@ -16,9 +19,10 @@ class HelloWorld {
     @Test
     fun main() {
         println("---------Hello Kotlin---------")
+        println("""扩展函数的使用：${"扩展函数".lastChar()}""")
         println(add(12, 15))
         println(max(12, 15))
-        val man = Man(age, "周晓龙","男")
+        val man = Man(age, "周晓龙", "男")
         val woman = Woman(0, null)
         val person = Person(13, "性别未知")
         println(man)
