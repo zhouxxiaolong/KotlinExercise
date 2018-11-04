@@ -6,4 +6,6 @@
  * 参   考: @link
  * 描   述:
  */
-class Man(age: Int, name: String?, sex: String = "男") : Person(age = age, name = name, sex = sex)
+class Man(age: Int, name: String?, sex: String = "男") : Person(age = age, name = name, sex = sex){
+
+}

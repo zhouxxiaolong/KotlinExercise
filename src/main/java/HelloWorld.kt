@@ -30,6 +30,13 @@ class HelloWorld {
         println(person)
         println(sex(man))
 
+        val button = Button()
+        button.click()
+        button.focus()
+        button.log()
+
+        val a=A()
+
     }
 
     private fun add(arg1: Int, arg2: Int): String = "两数之和: ${arg1 + arg2}"
