@@ -44,6 +44,13 @@ class HelloWorld {
         factoryBuildA.print("${factoryBuildB.javaClass}")
         Impl.click()
         Extend.log("实现伴生对象的拓展函数")
+
+        val listener = object : AbstractClass() {
+            override fun callBack() {
+                println("---------CallBack---------")
+            }
+        }
+
     }
 
     private fun add(arg1: Int, arg2: Int): String = "两数之和: ${arg1 + arg2}"
