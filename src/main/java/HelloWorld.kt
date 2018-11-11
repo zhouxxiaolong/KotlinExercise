@@ -35,8 +35,15 @@ class HelloWorld {
         button.focus()
         button.log()
 
-        val a=A()
+        val a = A()
 
+        CompanionClass.testLog()
+        val factoryBuildA = Factory.newA()
+        val factoryBuildB = Factory.Build.newB()
+        factoryBuildA.print("${factoryBuildA.javaClass}")
+        factoryBuildA.print("${factoryBuildB.javaClass}")
+        Impl.click()
+        Extend.log("实现伴生对象的拓展函数")
     }
 
     private fun add(arg1: Int, arg2: Int): String = "两数之和: ${arg1 + arg2}"
@@ -53,5 +60,8 @@ class HelloWorld {
                 else -> "变态吧"
             }
 
+    private fun Extend.Companion.log(string: String) {
+        println(string)
+    }
 
 }
