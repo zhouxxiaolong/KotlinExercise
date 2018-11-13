@@ -23,12 +23,17 @@ class HelloWorld {
         println(add(12, 15))
         println(max(12, 15))
         val man = Man(age, "周晓龙", "男")
-        val woman = Woman(0, null)
+        val woman = Woman(10, null)
         val person = Person(13, "性别未知")
         println(man)
         println(woman)
         println(person)
         println(sex(man))
+        val people = listOf(man, woman)
+        //lambda表达式
+        println("年龄最大的人是---->${people.maxBy { it.age }}")
+        //用成员引用搜索
+        println("年龄最小的人是---->${people.minBy(Person::age)}")
 
         val button = Button()
         button.click()
