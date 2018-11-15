@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test
+import java.lang.StringBuilder
 
 /**
  * Created
@@ -68,7 +69,9 @@ class HelloWorld {
         a()
         b()
         println(::B)
-
+        println(alphabet())
+        println(stringLength("asasdasdd"))
+        println(firstLetterIsA("bsasdasdd"))
     }
 
     fun a() = println("-------a---------")
@@ -94,4 +97,25 @@ class HelloWorld {
         println(string)
     }
 
+    fun alphabet(): String {
+        val stringBuilder = StringBuilder()
+        return with(stringBuilder) {
+            this.append("---with--方法使用---")
+            for (letter in 'a'..'z') {
+                this.append(letter)
+            }
+            //可以省略this
+            append("-----------")
+            toString()
+        }
+    }
+
+    fun stringLength(s: String?): Int {
+        return s?.length ?: 0
+    }
+
+    fun firstLetterIsA(s: String?): Boolean {
+        val letter = s!! as? String ?: return false
+        return letter.get(0).equals('a')
+    }
 }
