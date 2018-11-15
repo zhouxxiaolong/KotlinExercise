@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test
 
 fun String.lastChar(): Char = get(length - 1)
 
+fun print() = println("-------")
+
 class HelloWorld {
 
     val num1 = 16
@@ -29,11 +31,18 @@ class HelloWorld {
         println(woman)
         println(person)
         println(sex(man))
+
         val people = listOf(man, woman)
         //lambda表达式
         println("年龄最大的人是---->${people.maxBy { it.age }}")
+        println("年龄最大的人是---->${people.maxBy { person: Person -> person.age }}")
+        println("年龄最大的人是---->${people.maxBy { person -> person.age }}")
         //用成员引用搜索
         println("年龄最小的人是---->${people.minBy(Person::age)}")
+        println(Person::class.java)
+        println(people.filter { it.age > 13 }.map { it.name })
+        println(people.map { it.name })
+        run(::print)
 
         val button = Button()
         button.click()
@@ -56,6 +65,15 @@ class HelloWorld {
             }
         }
 
+        a()
+        b()
+        println(::B)
+
+    }
+
+    fun a() = println("-------a---------")
+    fun b() {
+        println("-------b---------")
     }
 
     private fun add(arg1: Int, arg2: Int): String = "两数之和: ${arg1 + arg2}"
