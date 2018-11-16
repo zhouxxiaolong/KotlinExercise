@@ -71,7 +71,7 @@ class HelloWorld {
         println(::B)
         println(alphabet())
         println(stringLength("asasdasdd"))
-        println(firstLetterIsA("bsasdasdd"))
+        println(startWithA("bsasdasdd"))
     }
 
     fun a() = println("-------a---------")
@@ -114,7 +114,7 @@ class HelloWorld {
         return s?.length ?: 0
     }
 
-    fun firstLetterIsA(s: String?): Boolean {
+    fun startWithA(s: String?): Boolean {
         val letter = s!! as? String ?: return false
         return letter.get(0).equals('a')
     }
