@@ -6,8 +6,8 @@
  * 参   考: @link
  * 描   述:
  */
-class A :BaseClass{
+open class A : BaseClass {
     constructor()
-    constructor(a: String)
 
+    var listener: ((s: String) -> Unit)? = null
 }

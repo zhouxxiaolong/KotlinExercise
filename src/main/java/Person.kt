@@ -9,9 +9,10 @@
 //如果主构造函数的所有的参数都有默认值，编译器会生成 一个额外的无参构造函数，它将使用默认值。
 open class Person(val age: Int, val name: String?, open val sex: String = "未知") {
 
-    fun isAdult(): Boolean = age >= 18
+    val adult: Boolean
+        get() = age >= 18
 
     override fun toString(): String {
-        return """此人，姓名为：${name ?: "姓名"}，年龄：${age}，性别：${sex}"""
+        return """此人，姓名为：${name ?: "姓名为空"}，年龄：${age}，性别：${sex}"""
     }
 }

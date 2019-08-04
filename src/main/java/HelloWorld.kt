@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Test
-import java.lang.StringBuilder
 
 /**
  * Created
@@ -9,10 +8,6 @@ import java.lang.StringBuilder
  * 参   考: @link
  * 描   述:
  */
-
-fun String.lastChar(): Char = get(length - 1)
-
-fun print() = println("-------")
 
 class HelloWorld {
 
@@ -28,10 +23,16 @@ class HelloWorld {
         val man = Man(age, "周晓龙", "男")
         val woman = Woman(10, null)
         val person = Person(13, "性别未知")
+
+        val girl = Person(name = "angular", age = 18,sex = "女")
         println(man)
         println(woman)
         println(person)
+        println(girl)
         println(sex(man))
+
+        println(man.adult)
+        println(woman.adult)
 
         val people = listOf(man, woman)
         //lambda表达式
@@ -51,6 +52,10 @@ class HelloWorld {
         button.log()
 
         val a = A()
+        a.listener = fun(s: String?) {
+            println(s)
+        }
+        a.listener?.invoke("ssssssss")
 
         CompanionClass.testLog()
         val factoryBuildA = Factory.newA()
@@ -65,6 +70,7 @@ class HelloWorld {
                 println("---------CallBack---------")
             }
         }
+        listener.callBack()
 
         a()
         b()
@@ -72,6 +78,13 @@ class HelloWorld {
         println(alphabet())
         println(stringLength("asasdasdd"))
         println(startWithA("bsasdasdd"))
+
+        println(SingletonLazy.instance.hashCode())
+        println(SingletonLazy.instance.hashCode())
+        println(SingletonLazy.instance.hashCode())
+        println(SingletonLazy.instance.hashCode())
+        println(toString(null))
+        println(toString("123132312"))
     }
 
     fun a() = println("-------a---------")
@@ -117,5 +130,9 @@ class HelloWorld {
     fun startWithA(s: String?): Boolean {
         val letter = s!! as? String ?: return false
         return letter.get(0).equals('a')
+    }
+
+    fun toString(s: String?): String {
+        return s ?: "为空"
     }
 }

@@ -9,3 +9,13 @@
 object Singleton {
 
 }
+
+class SingletonLazy private constructor(){
+    companion object {
+        val instance: SingletonLazy by lazy(LazyThreadSafetyMode.PUBLICATION) { SingletonLazy() }
+    }
+
+    fun print(){
+        println("线程安全的lazy单例")
+    }
+}
