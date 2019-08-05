@@ -6,7 +6,7 @@
  * 参   考: @link
  * 描   述:
  */
-object Singleton {
+object Singleton{
 
 }
 

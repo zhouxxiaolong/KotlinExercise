@@ -15,4 +15,13 @@ open class Person(val age: Int, val name: String?, open val sex: String = "未�
     override fun toString(): String {
         return """此人，姓名为：${name ?: "姓名为空"}，年龄：${age}，性别：${sex}"""
     }
+
+    operator fun component1(): Int {
+        return age
+    }
+
+    operator fun component2(): String? {
+        return name
+    }
+
 }

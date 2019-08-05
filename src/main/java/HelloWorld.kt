@@ -22,14 +22,18 @@ class HelloWorld {
         println(max(12, 15))
         val man = Man(age, "周晓龙", "男")
         val woman = Woman(10, null)
-        val person = Person(13, "性别未知")
+        val person = Person(13, "性别未知人")
 
-        val girl = Person(name = "angular", age = 18,sex = "女")
+        val girl = Woman(name = "angular", age = 18)
         println(man)
         println(woman)
         println(person)
         println(girl)
         println(sex(man))
+
+        for ( (age, name) in listOf(man, woman, person)){
+            println("-解构声明--age=$age,name=$name")
+        }
 
         println(man.adult)
         println(woman.adult)
@@ -85,6 +89,12 @@ class HelloWorld {
         println(SingletonLazy.instance.hashCode())
         println(toString(null))
         println(toString("123132312"))
+        openList(arrayOf("1", "2", "3"))
+
+        for ((key, value) in mapOf(1 to "111", 2 to "222")) {
+            println("key:$key,value:$value")
+        }
+
     }
 
     fun a() = println("-------a---------")
@@ -134,5 +144,12 @@ class HelloWorld {
 
     fun toString(s: String?): String {
         return s ?: "为空"
+    }
+
+    fun openList(args: Array<String>) {
+        println("----展开运算符-----")
+        println(listOf("head", args))
+        println(listOf("head", *args))
+        println("---------")
     }
 }
