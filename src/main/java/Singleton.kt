@@ -6,16 +6,21 @@
  * 参   考: @link
  * 描   述:
  */
-object Singleton{
+object Singleton {
+
+    fun getHashCode() {
+        println("线程安全的饿汉式单例")
+        println("=========hashcode${System.identityHashCode(this)}")
+    }
 
 }
 
-class SingletonLazy private constructor(){
+class SingletonLazy private constructor() {
     companion object {
         val instance: SingletonLazy by lazy(LazyThreadSafetyMode.PUBLICATION) { SingletonLazy() }
     }
 
-    fun print(){
-        println("线程安全的lazy单例")
+    fun print() {
+        println("线程安全的懒汉式单例")
     }
 }

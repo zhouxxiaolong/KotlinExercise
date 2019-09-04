@@ -9,5 +9,8 @@
 open class A : BaseClass {
     constructor()
 
-    var listener: ((s: String) -> Unit)? = null
+    var listener: ((s: String) -> Unit)? = { s: String ->
+        println("----callback----$s")
+    }
+
 }

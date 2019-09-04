@@ -1,3 +1,7 @@
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.junit.jupiter.api.Test
 
 /**
@@ -16,8 +20,18 @@ class HelloWorld {
 
     @Test
     fun main() {
+
+        GlobalScope.launch {
+            delay(2)
+            println("------------------------我是协程")
+        }
+
         println("---------Hello Kotlin---------")
         println("""扩展函数的使用：${"扩展函数".lastChar()}""")
+
+        var s: String? = null
+        println("---------String---------" + s?.length)
+
         println(add(12, 15))
         println(max(12, 15))
         val man = Man(age, "周晓龙", "男")
@@ -31,9 +45,11 @@ class HelloWorld {
         println(girl)
         println(sex(man))
 
-        for ( (age, name) in listOf(man, woman, person)){
+        for ((age, name) in listOf(man, woman, person)) {
             println("-解构声明--age=$age,name=$name")
         }
+
+
 
         println(man.adult)
         println(woman.adult)
@@ -56,9 +72,6 @@ class HelloWorld {
         button.log()
 
         val a = A()
-        a.listener = fun(s: String?) {
-            println(s)
-        }
         a.listener?.invoke("ssssssss")
 
         CompanionClass.testLog()
@@ -95,6 +108,23 @@ class HelloWorld {
             println("key:$key,value:$value")
         }
 
+        Singleton.getHashCode()
+        Singleton.getHashCode()
+
+        GlobalScope.launch(Dispatchers.IO) {
+            Singleton.getHashCode()
+        }
+
+        GlobalScope.launch {
+            Singleton.getHashCode()
+        }
+
+        GlobalScope.launch {
+            Singleton.getHashCode()
+        }
+
+        Singleton.getHashCode()
+        Singleton.getHashCode()
     }
 
     fun a() = println("-------a---------")
@@ -153,3 +183,8 @@ class HelloWorld {
         println("---------")
     }
 }
+
+fun main() = function1(::functionParam)
+fun function1(a: (Int) -> Unit) = a(11111)
+fun functionParam(a: Int) = println(a)
+
