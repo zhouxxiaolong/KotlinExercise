@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test
 class HighOrderFunctionTest {
 
     @Test
-    fun main() {
+    fun test() {
         val view = View()
         view.setOnClickListener {
             println("client operation")
